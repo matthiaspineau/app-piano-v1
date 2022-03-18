@@ -1,0 +1,45 @@
+{
+    "partitions": [
+        {
+            "title": "crysis memorie 2",
+            "path-json": "crysis-memorie-2",
+            "path-repertory": "crysis-memorie-2"
+        },
+        {
+            "title": "crysis 3",
+            "path-json": "crysis-3",
+            "path-repertory": "crysis-3"
+        },
+        {
+            "title": "Ludovico Einaudi - Una Mattina",
+            "path-json": "Ludovico-Einaudi-Una-Mattina",
+            "path-repertory": "Ludovico-Einaudi-Una-Mattina"
+        },
+        {
+            "title": "hans zimmer - honor him",
+            "path-json": "gladiator-honor-him",
+            "path-repertory": "gladiator-honor-him"
+        },
+        {
+            "title": "ruppert gregson williams - The Crown - Duck Shoot",
+            "path-json": "The-Crown-Duck-Shoot",
+            "path-repertory": "The-Crown-Duck-Shoot"
+        },
+        {
+            "title": "The Dark Knight - Main Theme - part 1",
+            "path-json": "The-Dark-Knight-Main-Theme-part_1",
+            "path-repertory": "The-Dark-Knight-Main-Theme-part_1"
+        },
+        {
+            "title": "Interstellar - Main Theme - part 1",
+            "path-json": "Interstellar-Main-Theme-part_1",
+            "path-repertory": "Interstellar-Main-Theme-part_1"
+        },
+        {
+            "title": "Crysis 2 - Epilogue - part 2 - v 1",
+            "path-json": "Crysis-2-Epilogue-part_2-v_1",
+            "path-repertory": "Crysis-2-Epilogue-part_2-v_1"
+        }
+
+    ]
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/test.css">
+    <script src="js/app.js" type="module" defer></script>
+    <script src="js/registration/appRegistration.js" type="module" defer></script>
+</head>
+<body>
+    <div class="wrapper theme-dark">
+
+        <!-- topbar -->
+        <nav class="topbar">
+            <h5>Affinity Piano</h5>
+            <div class="action">
+                <span id="go-partition" data-link="go-partition" data-active="false" class="link">partition</span>
+                <span id="go-formulaire" data-link="go-formulaire" data-active="false" class="link">enregistrement partition</span>
+                <span id="go-test" data-link="go-test" data-active="false" class="link">environement test</span>
+            </div>
+        </nav>
+    
+        <!-- view-partition -->
+        <section id="view-partition" class="view-partition is-open">
+    
+            <!-- view-sidebar__sidebar -->
+            <div id="view-partition__sidebar" class="view-partition__sidebar">
+                
+                <div id="view-sidebar" class="view-sidebar">
+                    <div id="btn-open-sidebar" class="btn-open-sidebar">
+                        <img src="assets/icon/icon-symbols-and-constraints.svg" alt="icon-symbols-and-constraints">
+                    </div>
+                    <div id="btn-close-sidebar" class="btn-close-sidebar">
+                        <span>close</span>
+                    </div> 
+                </div>   
+            </div>
+    
+            <!-- view-sidebar__main -->
+            <div class="view-partition__main">
+                
+                <!-- search bar -->
+                <div class="ps-2 pb-2 d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <h5>liste partition</h5>
+    
+                        <div class="d-flex">
+                            
+                            <div class="form-group">
+                                <select id="partition-list" name="" class="form-control form-control-sm"></select>
+                            </div>
+                            <div class="ms-3">
+                                <div id="title-on-load" data-path-repertory="" data-path-json=""></div>
+                                <button id="load" class="btn btn-primary btn-sm">charger</button>
+                                <div id="error-titre" class="error-titre d-none">Partition introuvable</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                    <div id="option-view-partition" class="option-view-partition is-hidden">
+
+                    
+                        <!-- btn option -->
+                        <div class="option-view-action d-flex justify-content-end">
+
+                            <!-- action limit number -->
+                            <div class="form-group option-limit-cards">
+                                <input type="text" id="option-limit-card-form" name="limit" value="1" class="option-limit-card__form">
+                                <span id="nb-all-cards"></span>
+                            </div>
+
+                            <!-- action drill down -->
+                            <div id="btn-drill-down" class="icon-media">
+                                <img src="assets/icon/icon-focus-stacking.svg" alt="icon-focus-stacking">
+                            </div>
+                            <!-- action control columns -->
+                            <span id="dropdown-control-col__btn" class="icon-media">
+                                <img src="assets/icon/icon-batch-processing.svg" alt="icon-batch-processing">
+                            </span>
+                        </div>
+
+                        <div id="dropdown-control-col" class="dropdown-control-col">
+                        
+                            <div id="dropdown-control-col__content" class="dropdown-control-col__content dropdown__content">
+                                <div class="control-col" data-opening="drowper-col">
+                                    <span id="on-1" data-column="on-1" data-active="false" class="on-column">1 colonne</span>
+                                    <span id="on-2" data-column="on-2" data-active="false" class="on-column">2 colonnes</span>
+                                    <span id="on-3" data-column="on-3" data-active="false" class="on-column">3 colonnes</span>
+                                    <span id="on-4" data-column="on-4" data-active="false" class="on-column">4 colonnes</span>
+                                    <span id="on-5" data-column="on-5" data-active="false" class="on-column">5 colonnes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            
+                <!-- container list card -->
+                <div id="container-list-card" data-drill="false" data-oncol="on-2" class="container-list-card"></div>
+                
+            </div>
+            
+        </section>
+        
+        <!-- view-formulaire -->
+        <section id="view-formulaire" class="view-formulaire">
+            <form id="form-registration-partion-information" name="form-registration-partion-information" class="max-w-600 mx-auto">
+
+                <div class="form-group form-group__2">
+                    <label for="">titre</label>
+                    <input type="text" name="title" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">compositeur</label>
+                    <input type="text" name="composed_by" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">interprète</label>
+                    <input type="text" name="arranged_by" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">lien officiel</label>
+                    <input type="text" name="official_link" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">lien annexes</label>
+                    <input type="text" name="secondary_link" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">nombres de photos note</label>
+                    <input type="number" name="nb_note_picture" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">extensions des photos</label>
+                    <input type="text" name="ext_note_picture" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">partie</label>
+                    <input type="number" name="part" value="" class="form-control form-control-sm form-control__2">
+                </div>
+
+                <div class="form-group form-group__2">
+                    <label for="">version</label>
+                    <input type="number" name="version" value="" class="form-control form-control-sm form-control__2">
+                </div>
+               
+                <div class="mt-3"> 
+                    <button id="btn-save-information">Comfirmer</button>
+                </div>
+
+            </form>
+
+            <div class="max-w-600 mx-auto">
+                <!--<pre>
+                    <code id="json-partion-final" class="json-partion-final max-w-600 mx-auto"></code>
+                </pre>-->
+                <div id="restit-folder-name" class="json-partion-final max-w-600 mx-auto"></div>
+                <div id="restit-file-name" class="json-partion-final max-w-600 mx-auto"></div>
+                <div id="restit-json-partion-final" class="json-partion-final max-w-600 mx-auto"></div>
+               
+            </div>
+        </section>
+
+        <!-- environnement de test -->
+        <section id="view-test" class="view-test">test</section>
+
+        <!-- wallpaper cLoser -->
+        <div id="wallpaper-closer" data-closer=""></div>
+    </div>
+
+</body>
+</html>

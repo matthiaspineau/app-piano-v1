@@ -1,0 +1,30 @@
+{
+    "partitions": [
+        {
+            "title": "crysis memorie 2",
+            "path-json": "crysis-memorie-2",
+            "path-reportory": "crysis-memorie-2"
+        },
+        {
+            "title": "crysis 3",
+            "path-json": "crysis-3",
+            "path-reportory": "crysis-3"
+        },
+        {
+            "title": "Ludovico Einaudi - Una Mattina",
+            "path-json": "Ludovico-Einaudi-Una-Mattina",
+            "path-reportory": "Ludovico-Einaudi-Una-Mattina"
+        },
+        {
+            "title": "hans zimmer - honor him",
+            "path-json": "gladiator-honor-him",
+            "path-reportory": "gladiator-honor-him"
+        },
+        {
+            "title": "ruppert gregson williams - The Crown - Duck Shoot",
+            "path-json": "The-Crown-Duck-Shoot",
+            "path-reportory": "The-Crown-Duck-Shoot"
+        }
+
+    ]
+}

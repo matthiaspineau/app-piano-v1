@@ -1,0 +1,25 @@
+.max-w-600 {
+    max-width: 600px;
+}
+
+.form-group__2 {
+
+}
+
+.form-group__2 label{
+    font-size: 12px;
+}
+
+.form-control__2 {
+    background: transparent;
+    border: none;
+    color: #fff;
+    border-bottom: 1px solid blue;
+}
+
+.form-control__2:focus {
+    background: transparent;
+    border: none;
+    color: #fff;
+    border-bottom: 1px solid blue;
+}
