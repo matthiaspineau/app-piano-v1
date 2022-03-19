@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/utility.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/test.css">
     <script src="js/app.js" type="module" defer></script>
     <script src="js/registration/appRegistration.js" type="module" defer></script>
@@ -53,8 +54,8 @@
     
                         <div class="d-flex">
                             
-                            <div class="form-group">
-                                <select id="partition-list" name="" class="form-control form-control-sm"></select>
+                            <div id="partition-list" class="form-group">
+                               
                             </div>
                             <div class="ms-3">
                                 <div id="title-on-load" data-path-repertory="" data-path-json=""></div>
@@ -76,6 +77,14 @@
                             <div class="form-group option-limit-cards">
                                 <input type="text" id="option-limit-card-form" name="limit" value="1" class="option-limit-card__form">
                                 <span id="nb-all-cards"></span>
+                            </div>
+
+                            <!-- color picker -->
+                            <div class="component-dropdown-wrapper component-dropdown-wrapper-right" id-ref="">
+                                <img class="component-dropdown-btn icon-media" drop-btn-ref="color-picker" src="assets/icon/icon-digital-painting.svg" alt="icon-digital-painting">
+                                <div class="component-dropdown-content" drop-content-ref="color-picker">
+                                    <div id="color-picker-wrapper" class="color-picker-wrapper"></div>
+                                </div>
                             </div>
 
                             <!-- action drill down -->

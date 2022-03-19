@@ -1,0 +1,39 @@
+/* dropdown */
+.component-dropdown-wrapper {
+    position: relative;
+}
+
+.component-dropdown-wrapper-right .component-dropdown-content {
+    right: 0px;
+}
+
+.component-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #262626;
+    z-index: 999999;
+}
+
+.component-dropdown-content.is-open {
+    display: block;
+}
+
+
+/* color-picker */
+.color-picker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color-picker-item {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgb(228, 228, 225);
+}

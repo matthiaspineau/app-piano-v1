@@ -1,8 +1,5 @@
 import {LineGuide} from './partition/models/LineGuide.js'
 
-const GuideLine = new LineGuide()
-
-
 /**
  * insert toute les cards dans la target
  * @param {array} data 
@@ -18,7 +15,8 @@ function createPartition(data,repertory, target) {
         i++
         target.innerHTML += card
     });
-    createEventDrawLineGuide()
+    const GuideLine = new LineGuide('.p-card')
+    GuideLine.init()   
 }
 
 
@@ -43,74 +41,4 @@ function createCardPartionImg(path, id) {
     return html
 }
 
-/**
- * create Event Draw LineGuide
- */
-function createEventDrawLineGuide() {
-    document.querySelectorAll('.p-card').forEach(elt => {
-        elt.addEventListener('click', drawLineGuide)
-    })
-}
-
-/**
- * Draw line guide
- * @param {*} data 
- * @param {*} nodeTarget 
- */
-function drawLineGuide(e) {
-    console.log(e.layerY)
-    let layerY = e.layerY
-    let layerX = e.layerX
-    let parent = e.target.parentNode
-    let attrId = parent.getAttribute('id_card_media')
-
-    let adjust = {
-        x: layerX,
-        y: layerY
-    }
-
-    GuideLine.createLine('div[id_card_media="'+attrId+'"]', adjust)
-
-}
-
-/**
- * cree 'option' du champ select partition
- * @param {array} data 
- * @param {node element} nodeTarget 
- */
-function createOptionListPartition(data, nodeTarget) {
-let html = `<option value="default" default>Selectionner un titre</option>`
-    nodeTarget.innerHTML += html
-    data.forEach(elt => {
-
-        let jsonPath = elt['path-json']
-      
-        html = `<option value="${jsonPath}">${elt.title}</option>`
-        nodeTarget.innerHTML += html
-    })
-}
-
-/**
- * recupere la liste des partions
- * @param {node element} nodeTarget 
- */
-function getListPartition(nodeTarget) {
-    let list
-    fetch('data-json/list-partition.json')
-    .then( res => res.json())
-    .then((data) => {
-        list = data.partitions
-        createOptionListPartition(list,nodeTarget)
-
-    })
-}
-
-// function fetchListPartition() {
-//     fetch('data-titre/list-partition.json')
-//     .then( res => res.json())
-//     .then((data) => {
-//         return data.partitions
-//     })
-// }
-
-export {createPartition, createCardPartionImg, getListPartition}
+export {createPartition, createCardPartionImg}

@@ -118,6 +118,10 @@ img {
     display: none;
 }
 
+.p-card {
+    max-width: 800px;
+}
+
 .p-card__media {
     position: relative;
     width: 100%;
