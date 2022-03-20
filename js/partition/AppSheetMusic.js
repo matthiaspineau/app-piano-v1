@@ -1,4 +1,4 @@
-class ResumePartition {
+export default class AppSheetMusic {
 
     constructor() {
         

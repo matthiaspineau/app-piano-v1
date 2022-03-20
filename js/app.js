@@ -1,36 +1,34 @@
-import {createPartition} from './functions.js'
-import CLSWallpaperCloser from './general/class/WallpaperCloser.js'
+// import {createPartition} from './functions.js'
+import CLSDropDown from './general/class/DropDown.js'
 import CLSColorPicker from './partition/models/ColorPicker.js'
 import CLSSheetsMusic from './partition/models/SheetsMusic.js'
 import { Router } from './router/router.js'
-
+import {LineGuide} from './partition/models/LineGuide.js'
 
 const containerListCard = document.getElementById('container-list-card')
 const btnOnColumn = document.querySelectorAll('.on-column')
 const btnOpenSidebar = document.getElementById('btn-open-sidebar')
 const btnCloseSidebar = document.getElementById('btn-close-sidebar')
 const containerSidebar = document.getElementById('view-partition__sidebar')
-const btnDropdownControlCol = document.getElementById('dropdown-control-col__btn')
-const contentDropdownControlCol = document.getElementById('dropdown-control-col__content')
 const btnDrillDown = document.getElementById('btn-drill-down')
 const formOptionLimitCards = document.getElementById('option-limit-card-form')
 const nbAllCards = document.getElementById('nb-all-cards')
-const optionViewPartition = document.getElementById('option-view-partition')
-
-
 
 window.addEventListener("DOMContentLoaded", (event) => {
-
+   
     const RouterSite = new Router
     RouterSite.init()
 
-    const WallpaperCloser = new CLSWallpaperCloser()
+    const DropDown = new CLSDropDown()
+    DropDown.init()
 
     const SheetsMusic = new CLSSheetsMusic()
     SheetsMusic.init()
 
     const ColorPicker = new CLSColorPicker
     ColorPicker.init()
+
+ 
 
     SheetsMusic.btnLoadFile.addEventListener('click', () => {
 
@@ -53,7 +51,6 @@ btnOnColumn.forEach(elt => {
         let lastActive = document.querySelector('.on-column[data-active="true"]')
         if (lastActive) {
             lastActive.dataset.active = false
-            WallpaperCloser.btnWallpaperCloser.dataset.closer = ''
         } 
         elt.dataset.active = true
         containerListCard.dataset.oncol = elt.dataset.column
@@ -77,16 +74,6 @@ btnCloseSidebar.addEventListener('click', function() {
 
 
 /**
- * open select columns
- */
-btnDropdownControlCol.addEventListener('click', function() {
-    contentDropdownControlCol.classList.toggle('is-open')
-    WallpaperCloser.openWallpaperCloser()
-    WallpaperCloser.btnWallpaperCloser.dataset.closer = 'drowper-col'
-})
-
-
-/**
  * btn drilldown
  */
 btnDrillDown.addEventListener('click', function() {
@@ -94,25 +81,6 @@ btnDrillDown.addEventListener('click', function() {
         containerListCard.dataset.drill = false
     } else {
         containerListCard.dataset.drill = true
-    }
-})
-
-/**
- * btn wallpaper closer
- */
- WallpaperCloser.btnWallpaperCloser.addEventListener('click', function() {
-    WallpaperCloser.removeWallpaperCloser()
-    WallpaperCloser.btnWallpaperCloser.dataset.closer = 'drowper-col'
-
-    let eltTargetWantClosing = WallpaperCloser.btnWallpaperCloser.dataset.closer
-
-    switch (eltTargetWantClosing) {
-        case 'drowper-col':
-            contentDropdownControlCol.classList.remove('is-open')
-            WallpaperCloser.removeWallpaperCloser()
-            break;
-        default:
-            break;
     }
 })
 
@@ -143,35 +111,48 @@ formOptionLimitCards.addEventListener('change', function(e) {
     
 })
 
-// -------------
-document.querySelectorAll('.component-dropdown-btn').forEach(element => {
-    element.addEventListener('click', () => {
-        let ref = element.getAttribute('drop-btn-ref')
-        WallpaperCloser.openWallpaperCloser()
-        WallpaperCloser.setRefNeedClose(ref)
-        switch (ref) {
-            case 'color-picker':
-                toggleContent(ref)  
-                break;
-        
-            default:
-                break;
-        }
-    })
-});
-
-function toggleContent(contentRef) {
-
-    let element = document.querySelector('.component-dropdown-content[drop-content-ref="'+ contentRef +'"]')
-    let isOpen = element.classList.contains('is-open')
-
-    if (isOpen) {
-        element.classList.remove('is-open')
-    } else {
-        element.classList.add('is-open')
-    }
+/**
+ * insert toute les cards dans la target
+ * @param {array} data 
+ * @param {string} repertory 
+ * @param {Node element} target 
+ */
+ function createPartition(data,repertory, target) {
+    let path = 'repertory-partition/' +repertory +'/'
+    let i = 0
+    target.innerHTML = ''
+    data.notes_picture.forEach(element => {
+        let card = createCardPartionImg(path + element, i)
+        i++
+        target.innerHTML += card
+    });
+    
+    const GuideLine = new LineGuide('.p-card', '#27ae60')
+    GuideLine.init()  
+    
 }
 
+
+/**
+ * 
+ * @param {string} path 
+ * @param {number} id 
+ * @returns HTMLelement
+ */
+function createCardPartionImg(path, id) {
+
+    let html =  `<div id="image-${id + 1}" id_card="${id + 1}" id_numero=${id + 1} class="p-card">
+                    <div class="p-card__media" id_card_media="${id + 1}">
+                        <img class="p-card__img" src="${path}" alt="" id_card_img="${id + 1}">
+                    </div>
+                    <div class="p-card__info is-open">
+                        <h5>N°${id + 1}</h5>
+                        <p>${path}</p>
+                    </div>
+                </div>`
+
+    return html
+}
 
 
 });

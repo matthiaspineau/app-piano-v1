@@ -238,6 +238,7 @@ img {
 }
 .on-column {
     display: block;
+    min-width: 120px;
     padding: 5px 5px;
     cursor: pointer;
 }

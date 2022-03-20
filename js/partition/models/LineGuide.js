@@ -1,8 +1,8 @@
 class LineGuide {
 
-    constructor(node) {
+    constructor(node, color) {
        this.targetNodes = document.querySelectorAll(node)
-       this.color = 'green'
+       this.color = color
     }
 
     init() {
@@ -63,6 +63,10 @@ class LineGuide {
 
     getColor() {
         return this.color
+    }
+
+    setColor(color) {
+        this.color = color
     }
 
 

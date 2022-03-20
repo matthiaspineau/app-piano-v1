@@ -67,31 +67,4 @@ export default class SheetsMusic {
         this.pathRepertory = this.sheetMusicPathRepertory.dataset.pathRepertory
     }
 
-
-    // btnLoadFile.addEventListener('click', function() {
-    //     let pathJson = titleOnLoad.dataset.pathJson
-    //     let pathRepertory = titleOnLoad.dataset.pathRepertory
-        
-    //     fetch('data-json/'+pathJson+'.json')
-    //     .then( res => res.json())
-    //     .then((data) => {
-    //         createPartition(data,pathRepertory, containerListCard)
-    //         let cardsPartitions = document.querySelectorAll('.p-card')
-    //         nbAllCards.textContent = '- ' + cardsPartitions.length
-    //     })
-    // })
-
-
-    // partitionList.addEventListener('change', function(event) {
-    //     let value = event.target.value
-    //     titleOnLoad.dataset.pathRepertory = value
-    //     titleOnLoad.dataset.pathJson = value
-    //     if (value != 'default') {
-    //         optionViewPartition.classList.add('is-visible')
-    //         optionViewPartition.classList.remove('is-hidden')
-    //     } else {
-    //         optionViewPartition.classList.remove('is-visible')
-    //         optionViewPartition.classList.add('is-hidden')
-    //     }
-    // })
 }
