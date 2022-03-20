@@ -1,7 +1,7 @@
 class Router {
 
     constructor() {
-        
+        this.wiew = ''
     }
 
     init() {

@@ -5,9 +5,16 @@ export default class DropDown {
     attrIdWallpaper = 'wallpaper-closer'
 
     constructor() {
+        if (DropDown.exists) {
+            return DropDown.instance
+        }
+
         this.wallpaperCloser = document.getElementById(this.attrIdWallpaper)
         this.nodesBtn = document.querySelectorAll('.' + this.attrClsBtn)
         this.refSelected = ''
+
+        DropDown.exists = true
+        DropDown.instance = this
     }
 
 
@@ -41,13 +48,13 @@ export default class DropDown {
 
     toggleContent(contentRef) {
 
-        let element = document.querySelector('.'+this.attrClsContent+'[drop-content-ref="'+ contentRef +'"]')
-        let isOpen = element.classList.contains('is-open')
+        let content = document.querySelector('.component-dropdown-content[drop-content-ref="'+ contentRef +'"]')
+        let isOpen = content.classList.contains('is-open')
     
         if (isOpen) {
-            element.classList.remove('is-open')
+            content.classList.remove('is-open')
         } else {
-            element.classList.add('is-open')
+            content.classList.add('is-open')
         }
     }
 
@@ -59,7 +66,7 @@ export default class DropDown {
             this.wallpaperCloser.classList.remove('is-open')
     
             if (this.refSelected) {
-                document.querySelector('.'+this.attrClsContent+'[drop-content-ref="'+ contentRef +'"]').classList.remove('is-open')
+                document.querySelector('.component-dropdown-content[drop-content-ref="'+ this.refSelected +'"]').classList.remove('is-open')
             }
         })
     }

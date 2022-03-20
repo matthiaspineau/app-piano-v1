@@ -1,4 +1,4 @@
-export default class SheetsMusic {
+export default class FieldSheetsMusic {
 
 
     constructor() {
@@ -11,18 +11,19 @@ export default class SheetsMusic {
         fetch('data-json/list-partition.json')
         .then( res => res.json())
         .then((data) => {
-            this.sheetsMusic = data.partitions 
+            this.FieldSheetsMusic = data.partitions 
 
-            this.createSelectSheetsMusic()   
+            this.createSelectFieldSheetsMusic()   
             this.sheetMusicOnChange() 
         })
     }
 
  
 
-    createSelectSheetsMusic() {
+    createSelectFieldSheetsMusic() {
 
-        let select = document.createElement('select')
+        let select
+        select = document.createElement('select')
         select.setAttribute('id', 'sheets-music')
         select.setAttribute('name', 'sheets-music')
         select.classList.add('form-control')
@@ -31,7 +32,7 @@ export default class SheetsMusic {
         let htmlOptions = `<option value="default" default>Selectionner un titre</option>`
         let jsonPath
      
-        this.sheetsMusic.forEach(elt => {
+        this.FieldSheetsMusic.forEach(elt => {
    
             jsonPath = elt['path-json']
             
@@ -46,13 +47,11 @@ export default class SheetsMusic {
 
     sheetMusicOnChange() {
         document.getElementById('sheets-music').addEventListener('change', (e) => {
-            let value = e.target.value
-            this.sheetMusicPathRepertory = value
-            this.sheetMusicPathJson = value
+            let sheetMusicSelected = e.target.value
+            this.sheetMusicPathRepertory = sheetMusicSelected
+            this.sheetMusicPathJson = sheetMusicSelected
 
-            console.log(this.sheetMusicPathJson)
-
-            if (value != 'default') {
+            if (sheetMusicSelected != 'default') {
                     this.optionViewPartition.classList.add('is-visible')
                     this.optionViewPartition.classList.remove('is-hidden')
                 } else {
@@ -62,9 +61,9 @@ export default class SheetsMusic {
         })
     }
 
-    loadFile() {
-        this.pathJson = this.sheetMusicPathRepertory.dataset.pathJson
-        this.pathRepertory = this.sheetMusicPathRepertory.dataset.pathRepertory
-    }
+    // loadFile() {
+    //     this.pathJson = this.sheetMusicPathRepertory.dataset.pathJson
+    //     this.pathRepertory = this.sheetMusicPathRepertory.dataset.pathRepertory
+    // }
 
 }
