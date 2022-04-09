@@ -2,6 +2,9 @@ import _DropDown from '../general/class/DropDown.js'
 import _ColorPicker from './models/ColorPicker.js'
 import _SheetCodeMusic from './models/SheetCodeMusic.js'
 import _FieldSheetsMusic from './models/FieldSheetsMusic.js'
+import _Lesson from './models/Lesson.js'
+import _Modal from '../general/class/Modal.js'
+
 
 export default class AppSheetMusic {
 
@@ -17,8 +20,17 @@ export default class AppSheetMusic {
         const FieldSheetsMusic = new _FieldSheetsMusic()
         FieldSheetsMusic.init()
 
+        const SheetCodeMusic = new _SheetCodeMusic()
+
         const ColorPicker = new _ColorPicker
         ColorPicker.init()
+
+        const Lesson = new _Lesson()
+        Lesson.init()
+        
+
+        const Modal = new _Modal()
+
 
     
 
@@ -28,13 +40,39 @@ export default class AppSheetMusic {
             .then( res => res.json())
             .then((data) => {
 
-                const SheetCodeMusic = new _SheetCodeMusic(data, FieldSheetsMusic.sheetMusicPathJson)
+                SheetCodeMusic.init(data, FieldSheetsMusic.sheetMusicPathJson)
                 SheetCodeMusic.createPartition()
 
                 let cardsPartitions = document.querySelectorAll('.p-card')
                 nbAllCards.textContent = '- ' + cardsPartitions.length
+                Lesson.setTitleMusic(SheetCodeMusic.container.getAttribute('sheet-code-music'))
+
+                Lesson.getListLessons()
             })
         })
+
+
+        // open modal
+        document.getElementById('click_1').addEventListener('click', () => {
+            Modal.init()
+        })
+
+        // add lesson
+        document.getElementById('lesson-add').addEventListener('click', () => {
+        
+           
+            Lesson.createNewLesson()
+
+            Modal.init()
+            Modal.injectContent(Lesson.getHtmlNewLesson())
+
+        })
+
+        // get lesson
+        // document.querySelector('.lesson-get').addEventListener('click', () => {
+        //    Lesson.applyLessonOnCard()
+
+        // })
 
 
         const containerListCard = document.getElementById('container-list-card')

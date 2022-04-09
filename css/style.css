@@ -284,3 +284,7 @@ img {
 #wallpaper-closer.is-open {
     display: block;
 }
+
+#wallpaper-closer.bg-dark {
+    background: rgba(0,0,0,0.5);
+}

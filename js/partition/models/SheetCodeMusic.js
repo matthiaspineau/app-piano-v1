@@ -2,15 +2,18 @@ import {LineGuide} from './LineGuide.js'
 
 export default class SheetCodeMusic {
 
-    constructor(data, repertory) {
-        this.container = document.getElementById('container-list-card')
+    constructor() {
+        this.container = document.getElementById('container-list-card') 
+    }
+
+    init(data, repertory) {
+        this.container.setAttribute('sheet-code-music', repertory)
         this.sheetCodeMusic = data
         this.basePath = 'repertory-partition/'
         this.endPath = repertory  + '/'
         this.repertoryPath = this.basePath + this.endPath
         this.countPictures = data.notes_picture.length
     }
-
 
     createPartition() {
 

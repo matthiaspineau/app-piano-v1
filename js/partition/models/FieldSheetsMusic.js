@@ -52,12 +52,12 @@ export default class FieldSheetsMusic {
             this.sheetMusicPathJson = sheetMusicSelected
 
             if (sheetMusicSelected != 'default') {
-                    this.optionViewPartition.classList.add('is-visible')
-                    this.optionViewPartition.classList.remove('is-hidden')
-                } else {
-                    this.optionViewPartition.classList.remove('is-visible')
-                    this.optionViewPartition.classList.add('is-hidden')
-                }
+                this.optionViewPartition.classList.add('is-visible')
+                this.optionViewPartition.classList.remove('is-hidden')
+            } else {
+                this.optionViewPartition.classList.remove('is-visible')
+                this.optionViewPartition.classList.add('is-hidden')
+            }
         })
     }
 

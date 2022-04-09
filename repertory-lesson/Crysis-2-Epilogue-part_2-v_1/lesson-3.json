@@ -1,0 +1,74 @@
+{
+  "lesson": [
+    {
+      "card_id": "2",
+      "card_line": [
+        {
+          "position": "absolute",
+          "left": "46.7606%",
+          "top": "46.7662%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        },
+        {
+          "position": "absolute",
+          "left": "33.5211%",
+          "top": "44.2786%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        },
+        {
+          "position": "absolute",
+          "left": "20.2817%",
+          "top": "43.7811%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        }
+      ]
+    },
+    {
+      "card_id": "4",
+      "card_line": [
+        {
+          "position": "absolute",
+          "left": "36.6197%",
+          "top": "18.9055%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        },
+        {
+          "position": "absolute",
+          "left": "46.7606%",
+          "top": "14.9254%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        },
+        {
+          "position": "absolute",
+          "left": "54.3662%",
+          "top": "20.398%",
+          "bottom": "0px",
+          "height": "100%",
+          "width": "3px",
+          "borderRadius": "5px",
+          "background": "rgb(39, 174, 96) none repeat scroll 0% 0%"
+        }
+      ]
+    }
+  ]
+}

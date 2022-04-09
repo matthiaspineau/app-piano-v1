@@ -13,6 +13,26 @@ class LineGuide {
         });
     }
 
+    createLesson(data) {
+        data.lesson.forEach( elt => {
+            
+            elt.card_line.forEach( line  => {
+                let adjust = {
+                    fromLesson: true,
+                    position: line.position,
+                    left: line.left,
+                    top: line.top,
+                    bottom: line.bottom,
+                    height: line.height,
+                    width: line.width,
+                    borderRadius: line.borderRadius,
+                    background: line.background,
+                }
+                this.createLine('div[id_card_media="'+elt.card_id+'"]', adjust)
+            })
+        })
+    }
+
     drawLineGuide(e) {
  
         let height = e.target.offsetHeight
@@ -25,8 +45,9 @@ class LineGuide {
         let valueY = (layerY / height) * 100
     
         let adjust = {
+            fromLesson: false,
             x: valueX,
-            y: valueY
+            y: valueY,
         }
     
         this.createLine('div[id_card_media="'+attrId+'"]', adjust)
@@ -43,14 +64,30 @@ class LineGuide {
 
     createLine(elt, adjust) {
         let div = document.createElement('div')
-        div.style.position = 'absolute'
-        div.style.left = adjust.x +'%'
-        div.style.top = adjust.y +'%'
-        div.style.bottom = '0px'
-        div.style.height = '100%'
-        div.style.width = '3px'
-        div.style.borderRadius = '5px 5px'
-        div.style.background = this.getColor()
+        div.classList.add('line_guide')
+
+        if (!adjust.fromLesson) {
+
+            div.style.position = 'absolute'
+            div.style.left = adjust.x +'%'
+            div.style.top = adjust.y +'%'
+            div.style.bottom = '0px'
+            div.style.height = '100%'
+            div.style.width = '3px'
+            div.style.borderRadius = '5px 5px'
+            div.style.background = this.getColor()
+
+        } else {
+            div.style.position = adjust.position
+            div.style.left = adjust.left
+            div.style.top = adjust.top
+            div.style.bottom = adjust.bottom
+            div.style.height = adjust.height
+            div.style.width = adjust.width
+            div.style.borderRadius = adjust.borderRadius
+            div.style.background = adjust.background
+        }
+
         
         let uuid = Math.random().toString(16).slice(2)
         
