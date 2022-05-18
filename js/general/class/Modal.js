@@ -17,10 +17,11 @@ export default class Modal {
 
     openModal() {
         this.modal.style.display = 'block'
+        this.handlerClose()
     }
 
     closeModal() {
-        this.modal.querySelector('.modal-contain').innerHTML = '';
+        this.modal.innerHTML = '';
         this.modal.style.display = 'none'
     }
 
@@ -37,7 +38,10 @@ export default class Modal {
     }
 
     injectContent(dataHtml) {
+        this.modal.innerHTML = ''
+        this.modal.appendChild(this.templateWrapper())
         this.modal.querySelector('.modal-contain').innerHTML = dataHtml
+        this.openModal()
     }
 
     insertModal() {

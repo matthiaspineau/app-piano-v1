@@ -60,7 +60,7 @@ export default class AppSheetMusic {
         // add lesson
         document.getElementById('lesson-add').addEventListener('click', () => {
         
-           
+            
             Lesson.createNewLesson()
 
             Modal.init()

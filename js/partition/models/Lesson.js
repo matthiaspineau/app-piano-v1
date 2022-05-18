@@ -15,15 +15,20 @@ export default class Lesson {
     init() {
         this.lesson.appendChild(this.templateWrapper())
         // this.handler()
-      
+        this.cleanHtmlLesson()
+    }
+
+    cleanHtmlLesson() {
+        console.log(this.lesson.querySelector('.lesson-list'))
+        this.lesson.querySelector('.lesson-list').innerHTML = ''
     }
 
     templateWrapper() {
         const wrapper = document.createElement('div')
         wrapper.innerHTML = `<div class="lesson-wrapper">
-                                <div class="lesson-list">pas de lesson</div>
                                 <div id="lesson-add" class="lesson-add">créé une lesson</div>
                                 <div class="lesson-get">get</div>
+                                <div class="lesson-list"></div>
                             </div>`
         return wrapper
     }
@@ -37,12 +42,12 @@ export default class Lesson {
             let ids = data.lessons.ids
             this.newId = Math.max(...ids) + 1
             this.newNameLesson = 'lesson-' + this.newId + '.json'
-          
+            this.idsLessons = []
             ids.forEach(elt => {
                 this.idsLessons.push(elt)
             });
-
-            this.lesson.appendChild(this.getHtmlLessonsList())
+            this.cleanHtmlLesson()
+            this.lesson.querySelector('.lesson-list').appendChild(this.getHtmlLessonsList())
 
             this.handlerLoadLesson()
             
@@ -51,6 +56,7 @@ export default class Lesson {
 
     getHtmlLessonsList() {
         let ul = document.createElement('ul')
+        console.log(this.idsLessons)
         this.idsLessons.forEach( lesson => {
             let li = document.createElement('li')
             li.setAttribute('id_lesson', lesson)
