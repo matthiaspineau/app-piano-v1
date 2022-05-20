@@ -2,8 +2,9 @@ import _DropDown from '../general/class/DropDown.js'
 import _ColorPicker from './models/ColorPicker.js'
 import _SheetCodeMusic from './models/SheetCodeMusic.js'
 import _FieldSheetsMusic from './models/FieldSheetsMusic.js'
-import _Lesson from './models/Lesson.js'
+// import _Lesson from './models/Lesson.js'
 import _Modal from '../general/class/Modal.js'
+import _Note from './models/Note.js'
 
 
 export default class AppSheetMusic {
@@ -25,11 +26,13 @@ export default class AppSheetMusic {
         const ColorPicker = new _ColorPicker
         ColorPicker.init()
 
-        const Lesson = new _Lesson()
-        Lesson.init()
+        // const Lesson = new _Lesson()
+        // Lesson.init()
         
 
         const Modal = new _Modal()
+
+        const Note = new _Note
 
 
     
@@ -45,9 +48,10 @@ export default class AppSheetMusic {
 
                 let cardsPartitions = document.querySelectorAll('.p-card')
                 nbAllCards.textContent = '- ' + cardsPartitions.length
-                Lesson.setTitleMusic(SheetCodeMusic.container.getAttribute('sheet-code-music'))
+                // Lesson.setTitleMusic(SheetCodeMusic.container.getAttribute('sheet-code-music'))
 
-                Lesson.getListLessons()
+                // Lesson.getListLessons()
+                Note.init()
             })
         })
 
@@ -58,15 +62,15 @@ export default class AppSheetMusic {
         })
 
         // add lesson
-        document.getElementById('lesson-add').addEventListener('click', () => {
+        // document.getElementById('lesson-add').addEventListener('click', () => {
         
             
-            Lesson.createNewLesson()
+        //     Lesson.createNewLesson()
 
-            Modal.init()
-            Modal.injectContent(Lesson.getHtmlNewLesson())
+        //     Modal.init()
+        //     Modal.injectContent(Lesson.getHtmlNewLesson())
 
-        })
+        // })
 
         // get lesson
         // document.querySelector('.lesson-get').addEventListener('click', () => {
@@ -83,9 +87,31 @@ export default class AppSheetMusic {
         const btnDrillDown = document.getElementById('btn-drill-down')
         const formOptionLimitCards = document.getElementById('option-limit-card-form')
         const nbAllCards = document.getElementById('nb-all-cards')
+        const btnSaveNotes = document.getElementById('btn-save-notes')
+        const btnLoadNotes = document.getElementById('btn-load-notes')
 
+        
         /**
-         * Choice nb column
+         * in sidebar
+         * open sidebar
+         */
+        btnOpenSidebar.addEventListener('click', function() {
+            containerSidebar.classList.add('is-open')
+            btnOpenSidebar.classList.add('is-hidden')
+        })
+        /**
+         * in sidebar
+         * close sidebar
+         */
+        btnCloseSidebar.addEventListener('click', function() {
+            containerSidebar.classList.remove('is-open')
+            btnOpenSidebar.classList.remove('is-hidden')
+        })
+        
+        /**
+         * event
+         * in option bar
+         * option Choice nb column
          */
         btnOnColumn.forEach(elt => {
             elt.addEventListener('click', () => {
@@ -99,23 +125,9 @@ export default class AppSheetMusic {
         })
 
         /**
-         * open sidebar
-         */
-        btnOpenSidebar.addEventListener('click', function() {
-            containerSidebar.classList.add('is-open')
-            btnOpenSidebar.classList.add('is-hidden')
-        })
-        /**
-         * close sidebar
-         */
-        btnCloseSidebar.addEventListener('click', function() {
-            containerSidebar.classList.remove('is-open')
-            btnOpenSidebar.classList.remove('is-hidden')
-        })
-
-
-        /**
-         * btn drilldown
+         * event
+         * in option bar
+         * option btn drilldown
          */
         btnDrillDown.addEventListener('click', function() {
             if (containerListCard.dataset.drill == "true") {
@@ -127,6 +139,7 @@ export default class AppSheetMusic {
 
         /**
          * event
+         * in option bar
          * option limit card
          */
         formOptionLimitCards.addEventListener('change', function(e) {
@@ -151,6 +164,63 @@ export default class AppSheetMusic {
             } 
             
         })
+
+
+        /**
+         * event
+         * in sidebar
+         * save note
+         */
+        btnSaveNotes.addEventListener('click', () => {
+            let result = Note.saveNotes()
+            console.log(result)
+
+
+            let titleMusic = SheetCodeMusic.container.getAttribute('sheet-code-music')
+            let nameFileNotesLesson = 'lesson-note-' + titleMusic
+
+            let html = `<div>
+                            <div class="mt-3">Dans le répertoire : repertory-lesson/${titleMusic}</div>
+                            <div class="mt-3">Créer / modifier le fichier : ${nameFileNotesLesson}</div>
+                            <div class="mt-3">
+                                <p class="mb-1">Copier / coller dans le fichier :</p>
+                                <div>${result}</div>
+                            </div>
+                        </div>`
+
+            let paramsModal = {
+                title : 'Sauvegarde des notes',
+                content : html,
+                action : ''
+            }
+          
+            Modal.createModal(paramsModal)
+
+        })
+
+        /**
+         * event
+         * in sidebar
+         * btn-load-notes
+         * charger les notes
+         */
+        btnLoadNotes.addEventListener('click', () => {
+
+            let titleMusic = SheetCodeMusic.container.getAttribute('sheet-code-music')
+            let nameFileNotesLesson = 'lesson-note-' + titleMusic
+
+            fetch(`repertory-lesson-notes/${titleMusic}/${nameFileNotesLesson}.json`)
+                .then( res => res.json())
+                .then((data) => {
+                    // const GuideLine = new LineGuide('.p-card', '#27ae60')
+                    // GuideLine.init() 
+                    // GuideLine.createLesson(data)
+                    Note.insertNoteFromLesson(data)
+                })
+        })
+
+      
+     
     }
 
 } 

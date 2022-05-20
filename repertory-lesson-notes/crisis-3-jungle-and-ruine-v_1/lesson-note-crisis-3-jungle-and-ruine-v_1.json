@@ -1,0 +1,129 @@
+{
+  "notes": [
+    {
+      "card_id": "2",
+      "card_notes": [
+        {
+          "position": "",
+          "top": "39.623%",
+          "left": "54.1429%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "1",
+          "id_keyboard": "C",
+          "id_text": "C"
+        },
+        {
+          "position": "",
+          "top": "37.9836%",
+          "left": "26.9539%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "12",
+          "id_keyboard": "A#",
+          "id_text": "A#"
+        },
+        {
+          "position": "",
+          "top": "72.4098%",
+          "left": "41.7005%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "12",
+          "id_keyboard": "A#",
+          "id_text": "A#"
+        },
+        {
+          "position": "absolute",
+          "top": "17.4918%",
+          "left": "8.52074%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "1",
+          "id_keyboard": "C",
+          "id_text": "C"
+        },
+        {
+          "position": "absolute",
+          "top": "18.3115%",
+          "left": "27.4147%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        },
+        {
+          "position": "absolute",
+          "top": "24.8689%",
+          "left": "44.9263%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        },
+        {
+          "position": "absolute",
+          "top": "22.4098%",
+          "left": "61.5161%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        },
+        {
+          "position": "absolute",
+          "top": "20.7705%",
+          "left": "77.1843%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        },
+        {
+          "position": "absolute",
+          "top": "52.7377%",
+          "left": "85.4793%",
+          "background": "",
+          "id_card_parent": "2",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        }
+      ]
+    },
+    {
+      "card_id": "4",
+      "card_notes": [
+        {
+          "position": "",
+          "top": "25.6885%",
+          "left": "49.5346%",
+          "background": "",
+          "id_card_parent": "4",
+          "id_note": "2",
+          "id_keyboard": "D",
+          "id_text": "D"
+        }
+      ]
+    },
+    {
+      "card_id": "6",
+      "card_notes": [
+        {
+          "position": "",
+          "top": "35.5246%",
+          "left": "55.0645%",
+          "background": "",
+          "id_card_parent": "6",
+          "id_note": "12",
+          "id_keyboard": "A#",
+          "id_text": "A#"
+        }
+      ]
+    }
+  ]
+}

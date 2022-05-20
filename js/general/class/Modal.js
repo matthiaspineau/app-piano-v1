@@ -10,9 +10,14 @@ export default class Modal {
 
     }
 
-    init() {
-        this.insertModal()
-        this.handlerClose()
+    // init() {
+    //     this.insertModal()
+    //     this.handlerClose()
+    // }
+
+    createModal(params) {
+        this.modal.appendChild(this.templateWrapper(params))
+        this.openModal()
     }
 
     openModal() {
@@ -20,58 +25,27 @@ export default class Modal {
         this.handlerClose()
     }
 
-    closeModal() {
-        this.modal.innerHTML = '';
-        this.modal.style.display = 'none'
-    }
-
-    templateWrapper() {
+    templateWrapper(params) {
         let wrapper = document.createElement('div')
-        wrapper.innerHTML = `<div class="modal-wrapper">
-                            <div class="modal-container">
+        wrapper.classList.add('modal-wrapper')
+        wrapper.innerHTML = `<div class="modal-container">
                                 <span class="modal-close">close</span>
-                                <div class="modal-contain"></div>
-                            </div>
-                        </div>`
+                                <div class="modal-contain">
+                                    <div>${params.title}</div>
+                                    <div>${params.content}</div>
+                                    <div>${params.action}</div>
+                                </div>
+                            </div>`
 
         return wrapper
     }
 
-    injectContent(dataHtml) {
-        this.modal.innerHTML = ''
-        this.modal.appendChild(this.templateWrapper())
-        this.modal.querySelector('.modal-contain').innerHTML = dataHtml
-        this.openModal()
-    }
-
-    insertModal() {
-        this.modal.appendChild(this.templateWrapper())
-    }
-
     handlerClose() {
-        document.querySelector('.modal-close').addEventListener('click', () => {
-            this.modal.style.display = 'none'
-            this.closeModal()
-        })
-    }
-
-
-
-    openWallpaperCloser() {
-        this.wallpaperCloser.classList.add('is-open')
-        this.wallpaperCloser.classList.add('bg-dark')
-
-        this.attachEventClose()
-    }
-
-    attachEventClose() {
-        this.wallpaperCloser.addEventListener('click', () => {
-
-            this.wallpaperCloser.classList.remove('is-open')
-    
-            // if (this.refSelected) {
-            //     document.querySelector('.component-dropdown-content[drop-content-ref="'+ this.refSelected +'"]').classList.remove('is-open')
-            // }
+        document.body.addEventListener('click', (e) => {
+            if (e.target == document.querySelector('.modal-wrapper') || e.target == document.querySelector('modal-close') ) {
+                this.modal.style.display = 'none'
+                this.modal.innerHTML = '';
+            }
         })
     }
 

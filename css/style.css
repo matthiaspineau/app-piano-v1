@@ -288,3 +288,42 @@ img {
 #wallpaper-closer.bg-dark {
     background: rgba(0,0,0,0.5);
 }
+
+/* note */
+.note {
+    position: absolute;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+
+    border-radius: 9999px;
+    height: 32px;
+    width: 32px;
+
+    cursor: pointer;
+}
+.listing_notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+.note_key {
+    /* position: relative; */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+
+    border-radius: 9999px;
+    height: 32px;
+    width: 32px;
+
+    cursor: pointer;
+}

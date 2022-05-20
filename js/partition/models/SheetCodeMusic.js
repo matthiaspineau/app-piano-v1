@@ -24,8 +24,10 @@ export default class SheetCodeMusic {
             this.container.innerHTML += this.createCard(this.repertoryPath + element, i)
         });
         
-        const GuideLine = new LineGuide('.p-card', '#27ae60')
-        GuideLine.init()  
+        // const GuideLine = new LineGuide('.p-card', '#27ae60')
+        // GuideLine.init() 
+        
+ 
         
     }
 
@@ -37,7 +39,7 @@ export default class SheetCodeMusic {
      * @returns HTMLelement
      */
     createCard(path, id) {
-
+        // ondrop="drop_handler(event)" ondragover="dragover_handler(event)"
         let html =  `<div id="image-${id + 1}" id_card="${id + 1}" id_numero=${id + 1} class="p-card">
                         <div class="p-card__media" id_card_media="${id + 1}">
                             <img class="p-card__img" src="${path}" alt="" id_card_img="${id + 1}">

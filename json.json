@@ -1,34 +1,17 @@
 {
-"title":"titre",
-"composed_by":"compositeur",
-"arranged_by":"interprete",
-"nb_note_picture":"25",
-"official_link": "",
-"notes_picture":
-    ["titre-interprete-1.png",
-    "titre-interprete-2.png",
-    "titre-interprete-3.png",
-    "titre-interprete-4.png",
-    "titre-interprete-5.png",
-    "titre-interprete-6.png",
-    "titre-interprete-7.png",
-    "titre-interprete-8.png",
-    "titre-interprete-9.png",
-    "titre-interprete-10.png",
-    "titre-interprete-11.png",
-    "titre-interprete-12.png",
-    "titre-interprete-13.png",
-    "titre-interprete-14.png",
-    "titre-interprete-15.png",
-    "titre-interprete-16.png",
-    "titre-interprete-17.png",
-    "titre-interprete-18.png",
-    "titre-interprete-19.png",
-    "titre-interprete-20.png",
-    "titre-interprete-21.png",
-    "titre-interprete-22.png",
-    "titre-interprete-23.png",
-    "titre-interprete-24.png",
-    "titre-interprete-25.png"]
+  "notes": [
+    {
+      "card_id": "2",
+      "card_notes": [
+        { "position": "absolute", "left": "50.7246%", "background": "" },
+        { "position": "absolute", "left": "54.7878%", "background": "" }
+      ]
+    },
+    {
+      "card_id": "4",
+      "card_notes": [
+        { "position": "absolute", "left": "55.465%", "background": "" }
+      ]
+    }
+  ]
 }
-
