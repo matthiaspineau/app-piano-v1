@@ -42,9 +42,16 @@ export default class Note {
             })
 
         })
+
+        this.handlerRemoveNote()
     }
 
     insertNote(e) {
+        if (this.number_selected == undefined || this.number_selected == '') {
+            return
+        }
+        
+
         let height = e.target.offsetHeight
         let width = e.target.offsetWidth
         let layerX = e.layerX
@@ -93,7 +100,7 @@ export default class Note {
         
         document.querySelector(elt).appendChild(div)
 
-        this.handlerRemoveNote(div)
+        this.handlerRemoveNote()
     }
 
     handlerSelectNoteFromListing() {
@@ -108,11 +115,15 @@ export default class Note {
         this.handlerInsertNoteInCardScreenShot()
     }
 
-    handlerRemoveNote(eltNode) {
-        eltNode.addEventListener('click', (e) => {
-            e.stopPropagation()
-            let attrUuidNote = e.target.getAttribute('uuid_note')
-            document.querySelector('div[uuid_note="'+attrUuidNote+'"]').remove()
+    handlerRemoveNote() {
+        document.querySelectorAll('.note').forEach(elt => {
+            elt.addEventListener('click', (e) => {
+                e.stopPropagation()
+                if (e.target.classList.contains('note')) {
+    
+                    e.target.remove()
+                }
+            })
         })
     }
     

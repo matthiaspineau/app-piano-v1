@@ -28,6 +28,7 @@ export default class FieldSheetsMusic {
         select.setAttribute('name', 'sheets-music')
         select.classList.add('form-control')
         select.classList.add('form-control-sm')
+        select.classList.add('form-style-a')
      
         let htmlOptions = `<option value="default" default>Selectionner un titre</option>`
         let jsonPath

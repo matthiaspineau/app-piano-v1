@@ -78,12 +78,38 @@
     height: 100%;
     width: 100%;
     padding: 10px;
-    background: grey;
+    background: rgb(255,255,255);
+    color: #000;
+    box-shadow: 2px 2px 2px grey;
 }
-
-
 
 .pre-lesson {
     max-width: 100%;
 }
 
+
+/* formulaire */
+.form-style-a {
+
+    background-color: var(--bg-black-very-light);
+    font-weight: bold;
+
+}
+
+.form-style-a {
+    background-color: var(--bg-black-very-light);
+    font-weight: bold;
+    /* color: var(--color-white); */
+    color: var(--color-violet-dark);
+    border-color: var(--color-violet-dark);
+}
+
+.form-style-a:focus {
+    /* color: var(--color-white); */
+    color: var(--color-violet-dark);
+    background-color: var(--bg-black-very-light);
+    border-color: var(--color-violet-dark);
+    /* outline: 0; */
+    /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
+    box-shadow: none;
+}

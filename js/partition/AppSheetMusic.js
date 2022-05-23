@@ -55,12 +55,6 @@ export default class AppSheetMusic {
             })
         })
 
-
-        // open modal
-        document.getElementById('click_1').addEventListener('click', () => {
-            Modal.init()
-        })
-
         // add lesson
         // document.getElementById('lesson-add').addEventListener('click', () => {
         

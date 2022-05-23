@@ -5,6 +5,8 @@
     --color-white-light: #d8d9db;
     --color-white-grey: #7e7e7e;
     --bg-black-dark: #171717;
+    --color-violet-dark: #7C5DFA;
+    --color-violet-light: #9277FF;
     /* --bg-black-light: #131514; */
     /* --bg-black-light : #171717; */
     --bg-black-light: #363636;
@@ -81,10 +83,14 @@ img {
 
 .view-partition__sidebar {
     width: 50px;
+    transition: 0.2s;
 }
 .view-partition__sidebar.is-open {
     width: 30%;
+    max-width: 300px;
+    transition: 0.2s;
 }
+
 
 .view-partition__main {
     flex: 1;
@@ -110,6 +116,10 @@ img {
 }
 .view-test {
     display: none;
+}
+
+.view-sidebar {
+    padding: 15px;
 }
 
 
@@ -187,12 +197,19 @@ img {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: 0.2s;
 }
 .btn-close-sidebar {
+    text-align: right;
     cursor: pointer;
 }
 .btn-open-sidebar.is-hidden {
-    display: none;
+    visibility: hidden;
+    transition: 0.2s;
+}
+.icon-sidebar {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 /* link */
